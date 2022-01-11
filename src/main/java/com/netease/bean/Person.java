@@ -2,6 +2,7 @@ package com.netease.bean;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -17,16 +18,17 @@ import java.util.Map;
  * @Component : 只有这个组件是IOC容器中的组件，才能使用容器提供的@ConfigurationProperties功能
  */
 
+@PropertySource(value = "classpath:person.properties")//指向对应的配置文件
 @Component
-//@ConfigurationProperties(prefix = "person")
+@ConfigurationProperties(prefix = "person")
 public class Person {
-    @Value("${person.lastName}")
+//    @Value("${person.lastName}")
     private String lastName;
-    @Value("${person.age}")
+//    @Value("${person.age}")
     private Integer age;
-    @Value("${person.boss}")
+//    @Value("${person.boss}")
     private Boolean boss;
-    @Value("${person.birth}")
+//    @Value("${person.birth}")
     private Date birth;
 
     private Map<String, Object> maps;
