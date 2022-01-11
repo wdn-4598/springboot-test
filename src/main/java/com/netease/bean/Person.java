@@ -18,12 +18,17 @@ import java.util.Map;
  */
 
 @Component
-@ConfigurationProperties(prefix = "person")
+//@ConfigurationProperties(prefix = "person")
 public class Person {
+    @Value("${person.lastName}")
     private String lastName;
+    @Value("${person.age}")
     private Integer age;
+    @Value("${person.boss}")
     private Boolean boss;
+    @Value("${person.birth}")
     private Date birth;
+
     private Map<String, Object> maps;
     private List<Object> lists;
     private Dog dog;
